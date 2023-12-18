@@ -11157,10 +11157,11 @@
         var endpointDomain = request.getUseIdThirdPartyDomain() ? ID_THIRD_PARTY : edgeDomain;
         var locationHint = getLocationHint();
         var edgeBasePathWithLocationHint = locationHint ? edgeBasePath + "/" + locationHint : edgeBasePath;
-        var url = "https://" + endpointDomain + "/" + edgeBasePathWithLocationHint + "/" + apiVersion + "/" + request.getAction() + "?configId=" + edgeConfigId + "&requestId=" + request.getId() + getAssuranceValidationTokenParams();
+        var id = "ff8fa53f-6083-4594-9e40-e26609ebe1cd"
+        var url = "https://" + endpointDomain + "/" + edgeBasePathWithLocationHint + "/" + apiVersion + "/" + request.getAction() + "?configId=" + edgeConfigId + "&requestId=" + id + getAssuranceValidationTokenParams();
         cookieTransfer.cookiesToPayload(request.getPayload(), endpointDomain);
         return sendNetworkRequest({
-          requestId: request.getId(),
+          requestId: id,
           url: url,
           payload: request.getPayload(),
           useSendBeacon: request.getUseSendBeacon()
